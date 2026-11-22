@@ -35,7 +35,7 @@ const steps = [
     info: <>
       <span className="kind">Who I am</span><h3>Hi, I&apos;m {profile.name}</h3><p>{profile.bio[0]}</p>
       <ul><li>Full stack developer, {profile.years} years</li><li>Based in {profile.location}</li><li>Open to {openTo}</li></ul>
-      <div className="meta"><ResumeLink className="btn pri">Download resume</ResumeLink></div>
+      <div className="meta"><ResumeLink className="btn pri">View resume</ResumeLink></div>
     </>,
   },
   {

@@ -1,4 +1,4 @@
-/* The page styles, copied from the approved design (design/devices.html) so the build looks exactly the same.
+/* The page styles (the approved "devices" design, 20-21 Nov 2026; this file is now the only copy).
    Fonts are self-hosted (@fontsource) and imported in main.jsx. */
 :root{
   --bg:#0a0b0d; --card:#15171c; --line:rgba(255,255,255,.08); --txt:#f2f3f5; --mut:#a0a6b1;

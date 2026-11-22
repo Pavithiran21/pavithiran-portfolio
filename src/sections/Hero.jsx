@@ -42,7 +42,7 @@ export default function Hero({ onPick }) {
           <p className="role">{profile.role} · <span>{profile.years} years</span></p>
           <p className="lead">{profile.tagline}</p>
           <div className="ctas">
-            <ResumeLink className="btn pri">Download resume <Icon name="download" /></ResumeLink>
+            <ResumeLink className="btn pri">View resume <Icon name="resume" /></ResumeLink>
             <a className="btn sec" href="#contact">Contact me</a>
           </div>
           {/* every number is counted from content.js (all 8 repos have a GitHub Actions ci.yml) */}

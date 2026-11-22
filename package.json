@@ -2,7 +2,7 @@
   "name": "pavithiran-portfolio",
   "private": true,
   "version": "1.0.0",
-  "description": "Pavithiran R: full stack developer portfolio",
+  "description": "Pavithiran Ramaraj: full stack developer portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",

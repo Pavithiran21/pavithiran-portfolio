@@ -50,12 +50,33 @@ test('education shows the degree, college, years and score', async ({ page }) =>
   await expect(page.locator('#stEdu .show .info')).toContainText(e.score);
 });
 
-test('resume buttons wait for the PDF without going anywhere', async ({ page }) => {
-  test.skip(!profile.resume.placeholder, 'the resume has been added');
+test('every resume button opens the PDF in a new tab', async ({ page, request }) => {
+  expect(profile.resume.placeholder).toBe(false);
   await open(page);
-  const btn = page.locator('[data-resume]:visible').first();
-  await expect(btn).toHaveAttribute('aria-disabled', 'true');
-  /* Playwright won't click an aria-disabled element, so send the click a person's tap would */
-  await btn.dispatchEvent('click');
-  expect(new URL(page.url()).hash).toBe('');
+  /* nav pill, phone top bar, hero and About: all point at the same file */
+  const all = page.locator('[data-resume]');
+  expect(await all.count()).toBeGreaterThanOrEqual(4);
+  for (const a of await all.all()) {
+    await expect(a).toHaveAttribute('href', profile.resume.href);
+    await expect(a).toHaveAttribute('target', '_blank');
+    await expect(a).not.toHaveAttribute('aria-disabled', 'true');
+    await expect(a).not.toHaveAttribute('download');
+  }
+  /* the file is really there and is a PDF */
+  const res = await request.get(profile.resume.href);
+  expect(res.status()).toBe(200);
+  expect(res.headers()['content-type']).toContain('application/pdf');
+  expect((await res.body()).subarray(0, 5).toString()).toBe('%PDF-');
+  /* clicking the always-visible nav button opens a new tab that asks for the PDF, and the portfolio stays open.
+     (Headless Chromium has no PDF viewer, so it hands the file to a download and the tab's URL stays blank:
+     check the request instead of the tab's address.) */
+  const ctx = page.context();
+  const [tab, req] = await Promise.all([
+    page.waitForEvent('popup'),
+    ctx.waitForEvent('request', r => r.url().endsWith(profile.resume.href)),
+    page.locator('a.cv:visible').click(),
+  ]);
+  expect(new URL(req.url()).pathname).toBe(profile.resume.href);
+  expect(new URL(page.url()).pathname).toBe('/');
+  await tab.close();
 });

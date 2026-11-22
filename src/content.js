@@ -1,11 +1,11 @@
 /* Everything the page says about Pavithiran, in one place.
    Numbers come from the eight project repos (Playwright tests recounted 20 Nov 2026).
-   To add the resume: put the PDF in public/ (for example public/resume.pdf), set resume.href to '/resume.pdf'
-   and resume.placeholder to false. */
+   The resume is public/Pavithiran_Ramaraj_Resume.pdf: replace that file (same name) to update it. Every Resume button opens it
+   in a new tab. Keep the experience bullets below word for word the same as the resume. */
 
 export const profile = {
   name: 'Pavithiran',
-  fullName: 'Pavithiran R',
+  fullName: 'Pavithiran Ramaraj',
   role: 'Full-stack developer',
   years: '2.5+',
   /* typed one after another in the hero's first line (the first one is shown still for reduced motion) */
@@ -20,7 +20,7 @@ export const profile = {
   whatsapp: { text: '+91 94869 70967', href: 'https://wa.me/919486970967' },
   github: 'https://github.com/Pavithiran21',
   linkedin: { href: 'https://www.linkedin.com/in/pavithiran-ramaraj/', text: 'linkedin.com/in/pavithiran-ramaraj' },
-  resume: { href: '#', placeholder: true },
+  resume: { href: '/Pavithiran_Ramaraj_Resume.pdf', placeholder: false },
   /* The owner's own words, one paragraph per About step (Who I am / How I work / What I'm looking for). */
   bio: [
     "I'm a Full Stack Developer with 2.5 years of experience, currently working as a Backend Developer at a startup. My specialty is building secure, scalable APIs using Java, Python and Node.js, with hands-on experience implementing JWT authentication and role-based access control for an enterprise client project.",
@@ -29,11 +29,26 @@ export const profile = {
   ],
 };
 
-/* One company, newest role first. */
+/* One company, newest role first. Word for word the same as the resume (public/Pavithiran_Ramaraj_Resume.pdf). */
 export const experience = [
-  { when: 'Jun 2026 – Present', title: 'Associate Software Developer', org: 'DJ Computing', points: ['Build secure, scalable REST APIs and microservices for production systems on AWS and Azure','Implemented JWT authentication and role-based access control for an enterprise client project', 'Own features from planning to production, with clean, maintainable code the team builds on', 'Use AI-assisted development to ship faster, reviewing and testing every change before release'] },
-  { when: 'Nov 2024 – May 2026', title: 'Junior Software Developer', org: 'DJ Computing', points: ['Built and maintained REST API features used by the product', 'Implemented input validation, error handling and logging across API endpoints to improve reliability', 'Diagnosed and fixed production bugs, writing Jest unit test cases to prevent regressions'] },
-  { when: 'May 2024 – Oct 2024', title: 'Junior Software Developer Intern', org: 'DJ Computing', points: ["Learned the team's codebase, Git workflow and code reviews", 'Built my first API endpoints under senior review', 'Fixed bugs and small features across the app'] },
+  { when: 'Jun 2026 – Present', title: 'Associate Software Developer', org: 'DJ Computing', points: [
+    'Build secure, scalable REST APIs and microservices for production systems on AWS and Azure.',
+    'Implemented JWT authentication and role-based access control (RBAC) for an enterprise client project.',
+    'Own features from planning to production, writing clean, maintainable code the team builds on.',
+    'Use AI-assisted development to ship faster, reviewing and testing every change before release.',
+  ] },
+  { when: 'Nov 2024 – May 2026', title: 'Junior Software Developer', org: 'DJ Computing', points: [
+    "Built and maintained 40+ REST API endpoints used across the company's product.",
+    'Implemented input validation, error handling, and logging across API endpoints to improve reliability.',
+    'Debugged and fixed 100+ production bugs, writing Jest unit test cases to prevent regressions.',
+    'Collaborated with product and QA teams to plan, estimate, and deliver features in Agile sprints.',
+    'Participated in code reviews to maintain code quality and consistency.',
+  ] },
+  { when: 'May 2024 – Oct 2024', title: 'Junior Software Developer Intern', org: 'DJ Computing', points: [
+    'Developed first production API endpoints under senior developer review.',
+    'Fixed bugs and delivered small features across the application.',
+    "Adopted the team's Git workflow and code review practices on a shared production codebase.",
+  ] },
 ];
 
 export const certifications = [
@@ -48,7 +63,7 @@ export const education = [
 export const skills = [
   { group: 'Languages', items: ['JavaScript', 'Java 21', 'Python', 'SQL', 'HTML & CSS'] },
   { group: 'Frontend', items: ['React 19', 'Redux Toolkit', 'RTK Query', 'TanStack Query', 'Tailwind CSS 4', 'Leaflet'] },
-  { group: 'Backend', items: ['Node.js', 'Express 5', 'Spring Boot 4', 'FastAPI', 'LLM integration (Groq)'] },
+  { group: 'Backend', items: ['Node.js', 'Express 5', 'Spring Boot 4', 'FastAPI', 'REST APIs', 'JWT Authentication', 'Authorization (RBAC)', 'LLM integration (Groq)'] },
   { group: 'Database', items: ['MySQL 8.4', 'MongoDB', 'Knex', 'Flyway', 'Transactions & locking'] },
   { group: 'Cloud & Architecture', items: ['AWS', 'Azure', 'Microservices', 'Agile / Scrum'] },
   { group: 'Testing', items: ['Jest', 'Playwright'] },
@@ -65,6 +80,8 @@ const ALL8 = ['Billsy', 'ScamSentry', 'DeskHive', 'FoodLoop', 'Resumify', 'SubPu
 export const usedIn = {
   'JavaScript': ALL8, 'HTML & CSS': ALL8, 'Git': ALL8, 'GitHub': ALL8, 'React 19': ALL8, 'Tailwind CSS 4': ALL8, 'Playwright': ALL8,
   'Docker': ALL8, 'GitHub Actions': ALL8, 'Vercel': ALL8, 'Render': ALL8,
+  /* every backend signs JWT access tokens (jsonwebtoken, jjwt, PyJWT); these four check roles before acting (others have one role) */
+  'REST APIs': ALL8, 'JWT Authentication': ALL8, 'Authorization (RBAC)': ['Billsy', 'ScamSentry', 'DeskHive', 'FoodLoop'],
   'Java 21': ['DeskHive', 'FoodLoop', 'SubPulse'], 'Spring Boot 4': ['DeskHive', 'FoodLoop', 'SubPulse'], 'Flyway': ['DeskHive', 'FoodLoop', 'SubPulse'],
   'Python': ['Resumify', 'GigVault'], 'FastAPI': ['Resumify', 'GigVault'],
   'Node.js': ['Billsy', 'ScamSentry', 'WeatherPing'], 'Express 5': ['Billsy', 'ScamSentry', 'WeatherPing'],
@@ -152,4 +169,5 @@ export const logos = {
 };
 export const badges = {
   'Microservices': 'MS', 'Agile / Scrum': 'AG', 'SQL': 'SQL', 'TanStack Query': 'TQ', 'Leaflet': 'LF', 'LLM integration (Groq)': 'AI', 'Flyway': 'FW', 'Render': 'R', 'Transactions & locking': 'TX',
+  'REST APIs': 'API', 'JWT Authentication': 'JWT', 'Authorization (RBAC)': 'RBAC',
 };

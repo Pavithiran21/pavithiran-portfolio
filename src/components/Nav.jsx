@@ -31,7 +31,7 @@ export default function Nav() {
     <>
       <div className="topbar">
         <a className="brand" href="#top" aria-label="Pavithiran, back to top"><i>P</i><span>Pavithiran</span></a>
-        <ResumeLink className="cv"><Icon name="download" />Resume</ResumeLink>
+        <ResumeLink className="cv"><Icon name="resume" />Resume</ResumeLink>
       </div>
       <nav className="nav" aria-label="Sections" ref={navRef}>
         <a className="me" href="#top" aria-label="Pavithiran, back to top"><i>P</i><span>Pavithiran</span></a>
@@ -41,7 +41,7 @@ export default function Nav() {
             <Icon name={id} /><span className="t">{label}</span><span className="ts" aria-hidden="true">{short}</span>
           </a>
         ))}
-        <ResumeLink className="cv"><Icon name="download" />Resume</ResumeLink>
+        <ResumeLink className="cv"><Icon name="resume" />Resume</ResumeLink>
       </nav>
     </>
   );

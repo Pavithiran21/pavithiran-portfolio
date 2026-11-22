@@ -15,7 +15,8 @@ const magnify = e => {
   });
 };
 /* soft hyphens (shown only when the word has to break) so long names fit the narrow phone tiles */
-const breakable = n => n.replace('Microservices', 'Micro­services').replace('Transactions', 'Trans­actions');
+const breakable = n => n.replace('Microservices', 'Micro­services').replace('Transactions', 'Trans­actions')
+  .replace('Authentication', 'Authen­tication').replace('Authorization', 'Author­ization');
 const settle = e => [...e.currentTarget.children].forEach(t => { t.style.transform = ''; });
 
 /* One row per group; each tile is a logo, the skill, and how many of the 8 apps use it (or where I use it instead). */

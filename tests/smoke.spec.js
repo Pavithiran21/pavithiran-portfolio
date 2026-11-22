@@ -4,7 +4,8 @@ import { open } from './helpers.js';
 
 test('loads with no errors, the right title and share tags', async ({ page }) => {
   const errors = await open(page);
-  await expect(page).toHaveTitle('Pavithiran R | Full Stack Developer');
+  await expect(page).toHaveTitle(`${profile.fullName} | Full Stack Developer`);
+  expect(profile.fullName).toBe('Pavithiran Ramaraj'); /* the name on the resume and LinkedIn */
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /full stack developer/i);
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /\/og\.png$/);
   await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', '/favicon.svg');

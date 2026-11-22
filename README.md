@@ -1,4 +1,4 @@
-# Pavithiran R · Portfolio
+# Pavithiran Ramaraj · Portfolio
 
 [![CI](https://github.com/Pavithiran21/pavithiran-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Pavithiran21/pavithiran-portfolio/actions/workflows/ci.yml)
 
@@ -69,7 +69,7 @@ public/             screenshots, logos, favicon, share image
 tests/              Playwright specs
 ```
 
-**To add the resume:** put the PDF in `public/` (for example `public/resume.pdf`), then in `src/content.js` set `resume.href` to `'/resume.pdf'` and `resume.placeholder` to `false`. Every Resume button then downloads it.
+**Resume:** `public/Pavithiran_Ramaraj_Resume.pdf`. Every Resume button opens it in a new tab. To update it, replace that file (same name) and push; Vercel redeploys. When you export a new version, set the PDF's Title ("Pavithiran Ramaraj – Resume") and Author: the browser tab shows the Title. Keep the experience bullets in `src/content.js` word for word the same as the PDF.
 
 ## Credits
 
