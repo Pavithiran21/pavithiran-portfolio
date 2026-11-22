@@ -13,7 +13,9 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 2 : undefined,
+  /* 2 at a time on CI and against the live site: many browsers rendering the 3D page while downloading over the
+     internet starve its timers (the hero typing test once timed out with 6+ workers on the live site) */
+  workers: process.env.CI || process.env.BASE_URL ? 2 : undefined,
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : [['list']],
   use: { baseURL, trace: 'retain-on-failure', screenshot: 'only-on-failure' },
   webServer: process.env.BASE_URL ? undefined : {
